@@ -49,8 +49,7 @@ export async function POST(req: Request) {
             phone: phone || "",
             lifecyclestage: "lead",
             hs_lead_status: "NEW",
-            message: message || "",
-            budget: budget || ""
+            message: `[Budget: ${budget || "Unknown"}] ${message || ""}`
           }
         })
       }).catch(err => console.error("HubSpot Error:", err));
