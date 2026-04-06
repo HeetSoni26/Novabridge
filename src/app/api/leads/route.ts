@@ -94,7 +94,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, lead: { id: lead.id } });
   } catch (error) {
     console.error("Lead capture error:", error);
-    return NextResponse.json({ error: "Failed to process lead" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to process lead", details: String(error) }, { status: 500 });
   }
 }
 
