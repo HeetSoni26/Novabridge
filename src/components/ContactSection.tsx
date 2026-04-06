@@ -84,6 +84,11 @@ export default function ContactSection() {
                     <option value="$5k+">$5,000+</option>
                   </select>
                 </div>
+                {status === "error" && (
+                  <div className="text-red-500 text-sm font-semibold text-center border border-red-500/20 bg-red-500/10 py-2 rounded-lg">
+                    Something went wrong! Please verify your project Environment Variables to ensure your database is securely connected.
+                  </div>
+                )}
                 <button 
                   type="submit" 
                   disabled={status === "loading"}
