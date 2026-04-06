@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import SparkleButton from "./SparkleButton";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,7 +40,9 @@ export default function Navigation() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
-            <SparkleButton text="Book a Call" />
+            <button className="magnetic px-6 py-2.5 bg-white text-black font-semibold rounded-full hover:bg-primary hover:text-white transition-all duration-300">
+              Book a Call
+            </button>
           </nav>
 
           {/* Mobile Menu Toggle */}

@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import SparkleButton from "./SparkleButton";
-import SuccessAnimation from "./SuccessAnimation";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", budget: "", message: "" });
@@ -48,12 +46,10 @@ export default function ContactSection() {
 
           <div className="lg:w-1/2 bg-secondary rounded-3xl p-8 md:p-10 border border-white/10">
             {status === "success" ? (
-              <div className="h-full flex flex-col items-center justify-center text-center gap-6">
-                <SuccessAnimation />
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">Audit Requested! 🎉</h3>
-                  <p className="text-muted">We&apos;ll be in touch within 24 hours. Check your inbox!</p>
-                </div>
+              <div className="h-full flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-black mb-6 text-2xl">✓</div>
+                <h3 className="text-2xl font-bold mb-2">Audit Requested</h3>
+                <p className="text-muted">We will be in touch within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -126,12 +122,13 @@ export default function ContactSection() {
                     Something went wrong! Please verify your project Environment Variables to ensure your database is securely connected.
                   </div>
                 )}
-                <SparkleButton 
+                <button 
                   type="submit" 
                   disabled={status === "loading"}
-                  text={status === "loading" ? "Submitting..." : "Get Free Audit"} 
-                  className="w-full flex justify-center"
-                />
+                  className="w-full magnetic py-4 bg-white text-black font-bold text-lg rounded-xl hover:bg-primary hover:text-white transition-all disabled:opacity-50"
+                >
+                  {status === "loading" ? "Submitting..." : "Get Free Audit"}
+                </button>
               </form>
             )}
           </div>
