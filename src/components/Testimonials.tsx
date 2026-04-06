@@ -26,7 +26,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-32 overflow-hidden bg-background">
+    <section className="py-20 overflow-hidden bg-background">
       <div className="container mx-auto px-6 mb-16 text-center">
         <h2 className="text-4xl md:text-5xl font-bold font-clash">Don't Take Our Word For It.</h2>
       </div>

@@ -39,7 +39,7 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" ref={containerRef} className="py-32 relative z-10 bg-[#060606]">
+    <section id="process" ref={containerRef} className="py-20 relative z-10 bg-[#060606]">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-20 font-clash">
           The Growth <br/><span className="text-gradient">Protocol</span>.

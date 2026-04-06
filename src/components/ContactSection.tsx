@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({ name: "", email: "", budget: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", budget: "", message: "" });
   const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -17,7 +17,7 @@ export default function ContactSection() {
       });
       if (res.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", budget: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", company: "", budget: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -27,7 +27,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-[#0A0A0A] relative z-10">
+    <section id="contact" className="py-20 bg-[#0A0A0A] relative z-10">
       <div className="container mx-auto px-6">
         <div className="bg-gradient-to-br from-primary/20 to-background border border-primary/20 rounded-[3rem] p-8 md:p-20 flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/2">
@@ -53,36 +53,69 @@ export default function ContactSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-muted mb-2">Your Name</label>
-                  <input required
-                    type="text" 
-                    className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-muted mb-2">Your Name</label>
+                    <input required
+                      type="text" 
+                      className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-muted mb-2">Work Email</label>
+                    <input required
+                      type="email" 
+                      className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-muted mb-2">Work Email</label>
-                  <input required
-                    type="email" 
-                    className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-muted mb-2">Phone Number</label>
+                    <input 
+                      type="tel" 
+                      className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-muted mb-2">Company Name</label>
+                    <input 
+                      type="text" 
+                      className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                      value={formData.company}
+                      onChange={(e) => setFormData({...formData, company: e.target.value})}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-muted mb-2">Monthly Budget</label>
-                  <select 
-                    className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none"
-                    value={formData.budget}
-                    onChange={(e) => setFormData({...formData, budget: e.target.value})}
-                  >
-                    <option value="">Select Range</option>
-                    <option value="< $2k">Under $2,000</option>
-                    <option value="$2k - $5k">$2,000 - $5,000</option>
-                    <option value="$5k+">$5,000+</option>
-                  </select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-muted mb-2">Monthly Budget</label>
+                    <select 
+                      className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none"
+                      value={formData.budget}
+                      onChange={(e) => setFormData({...formData, budget: e.target.value})}
+                    >
+                      <option value="">Select Range</option>
+                      <option value="< $2k">Under $2,000</option>
+                      <option value="$2k - $5k">$2,000 - $5,000</option>
+                      <option value="$5k+">$5,000+</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-muted mb-2">How can we help?</label>
+                    <input 
+                      type="text" 
+                      className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    />
+                  </div>
                 </div>
                 {status === "error" && (
                   <div className="text-red-500 text-sm font-semibold text-center border border-red-500/20 bg-red-500/10 py-2 rounded-lg">

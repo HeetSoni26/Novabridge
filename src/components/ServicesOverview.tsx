@@ -84,7 +84,7 @@ export default function ServicesOverview() {
   };
 
   return (
-    <section id="services" ref={containerRef} className="py-32 bg-background relative z-10">
+    <section id="services" ref={containerRef} className="py-20 bg-background relative z-10">
       <div className="container mx-auto px-6">
         <div className="mb-20 text-center mask-reveal">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 font-clash">
