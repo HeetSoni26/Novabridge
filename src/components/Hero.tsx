@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ThreeBackground from "./ThreeBackground";
+import SparkleButton from "./SparkleButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,9 +58,9 @@ export default function Hero() {
             Stop relying on referrals. We engineer autonomous digital systems that attract, nurture, and close high-ticket clients for B2B tech and service companies.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="magnetic w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-primary hover:text-white transition-colors">
-              Book a Free Audit
-            </button>
+            <a href="#contact">
+              <SparkleButton text="Book a Free Audit" />
+            </a>
             <button className="magnetic w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-bold rounded-full hover:bg-white/5 transition-colors">
               View Case Studies
             </button>
